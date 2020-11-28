@@ -1,14 +1,17 @@
 import React from "react";
 
 import PostContent from "./PostContent";
+import PostForm from "./PostForm";
 
 class Home extends React.Component {
     constructor() {
         super();
         this.state = {
             posts: [],
-            title: 'Title',
-            postText: 'The standard chunk of Lorem Ipsum used since the 1500s is    reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.g'
+            form: {
+                title: '',
+                postText: '',
+            }
         }
         
         this.handleChange = this.handleChange.bind(this);
@@ -31,6 +34,8 @@ class Home extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
+        const { title, postText} = this.state.form;
+        
         this.setState(prevState => {
             return {
                 posts: [
@@ -48,7 +53,14 @@ class Home extends React.Component {
 
     render() {
         return(
-            <PostContent posts={this.state.posts} />
+            <div>
+                <PostForm 
+                    handleChange = {this.handleChange}
+                    handleSubmit = {this.handleSubmit}
+                    form = {this.state.form}
+                />
+                <PostContent posts={this.state.posts} />
+            </div>
         );
     }
 }

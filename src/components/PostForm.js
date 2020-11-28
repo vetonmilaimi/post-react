@@ -1,31 +1,41 @@
 import React from "react";
-
+    
 class PostForm extends React.Component {
     render() {
-        <form onSubmit={this.props.handleSubmit}>
-            <h2>Create new post</h2>
-            <div>
-                <label htmlFor="title" placeholder="Title:">Title</label>
-                <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    value={this.props.form.title}
-                />
-            </div>
+        return (
+            <form onSubmit={this.props.handleSubmit}>
+                <h1>Create new post</h1>
+                <div>
+                    <label htmlFor="title">Title</label> <br />
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        value={this.props.form.title}
+                        onChange={this.props.handleChange}
+                        placeholder="Title of Post"
+                        required
+                    />
+                </div>
 
-            <div>
-                <label htmlFor="postText" placeholder="Write something...">Write Something</label>
-                <textarea 
-                    id="postText"
-                    name="postText"
-                    value={this.props.form.postText} 
-                >
-                </textarea>
-            </div>
+                <div>
+                    <label htmlFor="postText">Write Something</label> <br />
+                    <textarea 
+                        id="postText"
+                        name="postText"
+                        value={this.props.form.postText} 
+                        onChange={this.props.handleChange}
+                        placeholder="Write something..."
+                        rows="6"
+                        cols="22"
+                        required
+                    >
+                    </textarea>
+                </div>
 
-            <button type="submit">Post</button>
-        </form>
+                <button type="submit">Post</button>
+            </form>
+        );
     }
 }
 
