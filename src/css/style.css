@@ -1,0 +1,25 @@
+body {
+    background-color: #383838;
+    text-align: center;
+    color: white;
+}
+
+.post-content {
+    padding: 10px;
+    background-color: teal;
+}
+
+.post-content h3{
+    background-color: aqua;
+    color: brown;
+    font-size: 45px;
+    padding-bottom: 0;
+}
+
+.post-content p {
+    font-size: 20px;
+    padding-top: 0;
+    padding-left: 15%;
+    padding-right: 15%;
+    text-align: left;
+}
