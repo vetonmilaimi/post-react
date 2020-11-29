@@ -17,18 +17,20 @@ class PostContent extends React.Component {
 
     render() {
         const { date } = this.state;
-
-        const posts = this.props.posts.map((post, i) => {
+        const posts = this.props.posts.map((post, id) => {
             return (
-                <div className="post-content" key={i}>
+                <div className="post-content" id={id}>
                     <h3>{post.title}</h3>
                     <p>{post.postText}</p>
                     <hr />
                     <p>Creation Data: {date}</p>
 
-                    <button onClick={() => {
-                        document.getElementsByClassName("post-content")[i].remove();
+                    <button id={id} onClick={() => {
+                            document.getElementsByClassName("post-content")[id].remove();
+                            // document.getElementById("id").remove();
                     }}>Remove</button>
+
+                    <button>Edit</button>
                 </div>
             );
         });
